@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFilmItems } from "../../features/film/filmSlice";
+import { fetchFilmItems } from "features/film/filmSlice";
 
 
-const FilmsList = () => {
+function FilmsList() {
     //get data from state
     const film = useSelector(state => state.film);
     const dispatch = useDispatch(); //call fetch func from slice
@@ -11,6 +11,7 @@ const FilmsList = () => {
         () => {
             dispatch(fetchFilmItems());
         },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         []);
 
     return (
@@ -25,8 +26,7 @@ const FilmsList = () => {
                     <li>
                         Year: {JSON.stringify(film.filmItems.Year)}
                     </li>
-                </ul>
-            }
+                </ul>}
         </div>
 
 
