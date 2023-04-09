@@ -4,15 +4,13 @@ import axios from "axios";
 // url for api call to omdb
 const apiKey = "5826d6aa";
 const i = "tt3896198";
-
 const url = `http://www.omdbapi.com/?i=${i}&apikey=${apiKey}`;
 
-//generates pending, fulfilled,rejected action types
+//api call & generates pending, fulfilled,rejected action types
 export const fetchFilmItems = createAsyncThunk('film/fetchFilmItems',
     async () => {
         return axios.get(url).then(response => { return response.data })
     }
-
 )
 
 const initialState = {

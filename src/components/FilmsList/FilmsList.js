@@ -19,15 +19,15 @@ function FilmsList() {
             {film.isLoading && <div>Loading...</div>}
             {!film.isLoading && film.error ? <div>{film.error}</div> : null}
             {!film.isLoading &&
-                <ul>
-                    <li>
-                        Name:  {JSON.stringify(film.filmItems.Title)}
-                    </li>
-                    <li>
-                        Year: {JSON.stringify(film.filmItems.Year)}
-                    </li>
-                </ul>}
-        </div>
+                <div className="card">
+                    <img src={film.filmItems.Poster} alt="Avatar" />
+                    <div className="container">
+                        <h4><b>{film.filmItems.Title}</b></h4>
+                        <p>{film.filmItems.Year}</p>
+                    </div>
+                </div>
+            }
+        </div >
 
 
     );
